@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>UI Test</title>
+    <link rel="stylesheet" type="text/css" href="/cdn/css/00reset.css" />
+    <style tyle="text/css">
+
+      * {-webkit-padding-start: 0px}
+      body,html {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+      }
+
+      label {
+        display: inline-block;
+        font-size: 18px;
+        padding-right: 5px;
+        color: #666;
+        padding-bottom: 5px;
+      }
+
+      input {
+        font-size: 18px;
+        -moz-box-sizing: border-box !important;
+        box-sizing: border-box;
+        -webkit-border-sizing: border-box;
+        width: 200px;
+        margin: 0px;
+        padding: 0px;
+
+        height: 40px;
+
+        line-height: 18px;
+
+        border: 1px solid #BBB;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 1px 1px 0 rgba(0, 0,0, 0.1) inset;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        padding-top: -1px;
+
+        background-image: linear-gradient(bottom, rgb(255,255,255) 63%, rgb(242,242,242) 100%);
+        background-image: -o-linear-gradient(bottom, rgb(255,255,255) 63%, rgb(242,242,242) 100%);
+        background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 63%, rgb(242,242,242) 100%);
+        background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 63%, rgb(242,242,242) 100%);
+        background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 63%, rgb(242,242,242) 100%);
+
+        background-image: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.63, rgb(255,255,255)),
+          color-stop(1, rgb(242,242,242))
+        );
+
+      }
+
+      .button {
+        background-color: #276b65;
+
+
+background-image: linear-gradient(bottom, rgb(209,209,209) 0%, rgb(250,250,250) 43%);
+background-image: -o-linear-gradient(bottom, rgb(209,209,209) 0%, rgb(250,250,250) 43%);
+background-image: -moz-linear-gradient(bottom, rgb(209,209,209) 0%, rgb(250,250,250) 43%);
+background-image: -webkit-linear-gradient(bottom, rgb(209,209,209) 0%, rgb(250,250,250) 43%);
+background-image: -ms-linear-gradient(bottom, rgb(209,209,209) 0%, rgb(250,250,250) 43%);
+
+background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0, rgb(209,209,209)),
+  color-stop(0.43, rgb(250,250,250))
+);
+
+        border-radius: 3px 3px 3px 3px;
+        -moz-box-sizing: border-box !important;
+        box-sizing: border-box;
+        -webkit-border-sizing: border-box;
+        box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset;
+        cursor: pointer;
+        display: inline-block;
+        font: 14px 'Lucida Grande', 'Lucida Sans Unicode', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+        outline: medium none !important;
+        text-align: center;
+        text-decoration: none;
+
+        text-shadow: 0 1px 0 #FFFFFF;
+        color: #555;
+        border: 1px solid #BBBBBB;
+
+        white-space: nowrap;
+
+        margin: 0px;
+        padding: 0px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        height: 40px;
+        line-height: 40px;
+
+
+        vertical-align: top;
+
+        -webkit-appearance: none;
+      }
+
+      .button:hover {
+        color: #000;
+        border: 1px solid #666;
+       }
+
+      .button:active {
+        color: #F00;
+      }
+
+      .button::-moz-focus-inner {
+        border: none;
+        padding: 0px;
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        button.button {
+        }
+      }
+
+      .icon {
+        padding: 0px;
+        margin: 0px;
+        background: url('/cdn/i/done.png');
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 40px;
+        background-position: center center;
+        display: inline-block;
+        vertical-align: top;
+        border: 0;
+        margin-right: 5px;
+      }
+
+      fieldset {
+        margin-bottom: 15px;
+      }
+
+      dfn {
+        display: block;
+        position: relative;
+        color: #999;
+        padding-top: 5px;
+        font-size: 14px;
+      }
+
+      .int .button {
+        border-radius: 0px 3px 3px 0px;
+        margin-left: 0px;
+      }
+
+      .int input {
+        border-radius: 3px 0px 0px 3px;
+        margin-right: 0px;
+        border-right: none;
+      }
+
+      .int input:focus {
+        background-color: #FFFFCC !important;
+        background-image: none;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>Hello World</h1>
+
+    <div style="position:relative">
+      <div style="height:40px;width:100%;background:#FFF">
+        &nbsp;
+      </div>
+
+      <div style="position:absolute;top:0px;left:0px">
+        <div style="float:left; padding-right: 10px;">
+          <a href="#" class="button"><span class="icon"></span>Testing</a>
+        </div>
+
+        <div style="float: left;">
+          <form>
+            <button class="button" type="submit"><span class="icon"></span>Testing</button>
+          </form>
+        </div>
+
+        <div style="clear:both;padding-top: 10px">
+          <form>
+            
+            <fieldset>
+              <label>Name</label>
+              <input type="text" />
+              <button class="button" type="submit">Search</button>
+            </fieldset>
+
+            <fieldset class="int">
+              <label>Name</label>
+              <input type="text" /><button class="button" type="submit">Search</button>
+            </fieldset>
+
+            <fieldset>
+              <label style="display:block">Other Field</label>
+              <input type="text" />
+              <dfn>This field is about...</dfn>
+            </fieldset>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
