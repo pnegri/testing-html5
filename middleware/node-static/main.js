@@ -6,15 +6,25 @@ var NodeStatic = require('node-static');
 
 var NodeStaticController = function() {}
 
+NodeStaticController.print_req = function( params ) {
+  console.log( params.one );
+  console.log( params.two );
+  params.app.respondWithNotFound( params.response )
+  return true;
+}
+
 NodeStaticController.get_file = function( params ) {
   /*
   params.response.writeHead( 200, {"Content-Type":"text/plain"} );
   params.response.write('Hello world');
   params.response.end();
   */
-  params.request.url = params.request.url.replace( '/cdn', '' );
+  //params.request.url = params.request.url.replace( '/cdn', '' );
+  
+  params.request.url = params.static_file;
 
-  console.log( params.request.url );
+//  console.log( 'static' + params.static_file);
+//  console.log( 'URL' + params.request.url );
 
 //  console.log( 'Trying to serve static: ' + decodeURI(Url.parse(params.request.url).pathname) );
   this.test_resource.serve( params.request, params.response,
@@ -36,9 +46,10 @@ NodeStaticController.bootstrap = function( application ) {
 
   for ( resource_name in application.config.nodeStatic.assets ) {
     var resource_config = application.config.nodeStatic.assets[ resource_name ];
-    this.routes[ '/' + resource_name + '/.*' ] = 'get_file';
+    this.routes[ '/' + resource_name + '/{static_file}' ] = 'get_file';
     this.test_resource = new NodeStatic.Server( resource_config.directory, resource_config.config  );
   }
+  this.routes[ '/bla/{one}/{two}' ] = 'print_req';
 }
 
 NodeStaticController.getRoutes = function() {
